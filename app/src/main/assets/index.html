@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>둠스데이 트래커</title>
+<style>
+body {
+  background:#080b14;
+  color:white;
+  font-family:Arial,sans-serif;
+  margin:0;
+  padding:20px;
+}
+h1 {color:#ff3434;text-align:center}
+p {color:#aaa;text-align:center}
+input {
+  box-sizing:border-box;
+  width:100%;
+  padding:15px;
+  border-radius:12px;
+  border:1px solid #555;
+  background:#1b2232;
+  color:white;
+  font-size:16px;
+}
+button {
+  width:100%;
+  margin-top:12px;
+  padding:15px;
+  border:0;
+  border-radius:12px;
+  background:#bd202b;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+}
+.card {
+  background:#171d2b;
+  border-radius:15px;
+  padding:18px;
+  margin-top:18px;
+}
+a {color:#8bc7ff}
+</style>
+</head>
+<body>
+<h1>AVENGERS DOOMSDAY</h1>
+<p>마블 뉴스 & 영상 트래커</p>
+
+<input id="search" placeholder="캐릭터, 배우, 영화 검색">
+<button onclick="searchNews()">관련 뉴스 검색</button>
+<button onclick="searchVideos()">유튜브 영상 검색</button>
+
+<div class="card">
+<h2>마블 최신 뉴스</h2>
+<p>새 탭에서 관련 기사를 검색합니다.</p>
+<button onclick="latestNews()">최신 뉴스 보기</button>
+</div>
+
+<div class="card">
+<h2>마블 공식 유튜브</h2>
+<a href="https://www.youtube.com/@marvel" target="_blank">
+마블 공식 채널 열기
+</a>
+</div>
+
+<div class="card">
+<h2>무비띵크 영상</h2>
+<button onclick="movieThink()">무비띵크 검색</button>
+</div>
+
+<script>
+function keyword(){
+ return document.getElementById("search").value.trim()
+ || "Avengers Doomsday";
+}
+function openSearch(url){
+ window.open(url,"_blank");
+}
+function searchNews(){
+ openSearch("https://www.google.com/search?tbm=nws&q="
+ +encodeURIComponent(keyword()));
+}
+function latestNews(){
+ openSearch("https://www.google.com/search?tbm=nws&q="
+ +encodeURIComponent("Avengers Doomsday Marvel"));
+}
+function searchVideos(){
+ openSearch("https://www.youtube.com/results?search_query="
+ +encodeURIComponent(keyword()));
+}
+function movieThink(){
+ openSearch("https://www.youtube.com/results?search_query="
+ +encodeURIComponent("무비띵크 마블"));
+}
+</script>
+</body>
+</html>
